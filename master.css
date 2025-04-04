@@ -1,0 +1,134 @@
+*{
+    margin: 0;padding: 0;box-sizing: border-box;
+}
+.me{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    position: fixed;
+    left: 50px;
+    bottom: 50px;
+    >h1{
+        font-size: 30px;
+        font-weight: 600;
+        transition: .7s;
+        >ul{
+            list-style-type: none;
+            margin-top: 10px;
+            opacity: 0;
+            transition: .7s;
+            >li{
+                font-size: 16px;
+                margin-top: 5px;
+                padding-bottom: 5px;
+                border-bottom: 1px solid rgba(128, 128, 128, 0.377);
+                cursor: pointer;
+                padding: 10px;
+                transition: .4s;
+                &:hover{
+                    background-color:rgba(128, 128, 128, 0.285) ;
+                }
+            }
+        }
+        &:hover{
+            >ul{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.game{
+    width: 600px;
+    height: 200px;
+   
+    margin: 220px  auto;
+    background-image: url(img/Ground.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+#dino{
+    width: 50px;
+    height: 50px;
+    background-image: url(img/trex.png);
+    background-size: 50px  50px;
+    position: relative;
+    top: 148px; 
+    left: 5px;
+}
+.jump{
+    animation: jump 0.3s linear;
+}
+
+.popup{
+    width: 350px;
+    height: 150px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0 , 0 , 0, 0.2);
+    text-align: center;
+    display: none;
+    >h2{
+        margin-top: 20px;
+        font-size: 35px;
+        font-family: "Tektur", sans-serif;
+        color: rgb(77, 76, 76);
+        font-weight: 500;
+    }
+    >button{
+        width: 80px;
+        height: 35px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 6px;
+        background-color:rgba(128, 128, 128, 0.81);
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        color: rgba(253, 247, 247, 0.931);
+        cursor: pointer;
+    }
+}
+
+.stop{
+    animation-play-state: paused;
+}
+
+@keyframes jump {
+    0%{
+        top: 150px;
+    }
+    30%{
+        top: 130px;
+    }
+    50%{
+        top: 80px;
+    }
+    80%{
+        top: 130px;
+    }
+    100%{
+        top: 150px;
+    }
+}
+
+#cactus{
+    width: 20px;
+    height: 40px;
+    position: relative;
+    top: 109.2px;
+    left: 578.5px;
+    background-image: url(img/cactus.png);
+    background-size: 20px 40px;
+    animation: block2 2s infinite linear;
+}
+
+@keyframes block2 {
+    0%{
+        left: 578.5px;
+    }
+    100%{
+        left: -20px;
+    }
+}

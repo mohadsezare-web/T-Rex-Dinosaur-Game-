@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runner game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Arima:wght@100..700&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bitter:ital,wght@0,100..900;1,100..900&family=DM+Serif+Text:ital@0;1&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Parkinsans:wght@300..800&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tektur:wght@400..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="master.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=restart_alt" />
+    <link rel="stylesheet" href="css/fontello.css">
+</head>
+<body>
+    <div class="me">
+        <h1 >Mohadese zare
+            <ul>
+                <li><span class="icon-instagram-1"></span>Mohaddeseh.dev</li>
+                <li><span class="icon-linkedin"></span>Mohadsezare_web</li>
+                <li><span class="icon-github-circled"></span>Mohadsezare_web</li>
+            </ul>
+        </h1>
+    </div>
+    <div class="game">
+        <div id="dino"></div>
+        <div id="cactus"></div>
+    </div>
+    <div class="popup">
+        <h2>game Over</h2>
+        <button onclick="location.reload()"><span class="material-symbols-outlined">restart_alt</span></button>
+    </div>
+</body>
+<script>
+    const dino = document.querySelector('#dino');
+    const cactus = document.querySelector('#cactus')
+    const popup = document.querySelector('.popup')
+
+    function jump(){
+        if(dino.classList != 'jump'){
+            dino.classList.add('jump')
+
+            setTimeout(() => {
+                dino.classList.remove('jump')
+            } ,300);
+        }
+    }
+    
+    let islive = setInterval(function (){
+        let dinotop = parseInt(window.getComputedStyle(dino).getPropertyValue('top'));
+        let cactusleft =parseInt(window.getComputedStyle(cactus).getPropertyValue('left'));
+        
+        if(cactusleft <50 && cactusleft > 0 && dinotop>=140 ){
+            cactus.style.animationPlayState ='paused'
+            popup.style.display = 'block'
+        }
+    }, 10)
+    
+    document.addEventListener('keydown', function (e){
+        jump()
+    })
+</script>
+</html>
